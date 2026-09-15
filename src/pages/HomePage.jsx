@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getPopularMovies } from '../services/tmdb'
+import { MovieCard } from '../components/MovieCard'
 
 export function HomePage() {
   const [movies, setMovies] = useState([])
@@ -14,9 +15,9 @@ export function HomePage() {
   }, [])
 
   return (
-    <ul>
+    <ul className="movie-grid">
       {movies.map((movie) => {
-        return <li key={movie.id}>{movie.title}</li>
+        return <MovieCard key={movie.id} movie={movie} />
       })}
     </ul>
   )

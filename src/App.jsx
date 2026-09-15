@@ -1,13 +1,19 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 import { FavoritesPage } from './pages/FavoritesPage'
+import './App.css'
 
 function App() {
   return (
     <>
-      <nav>
-        <Link to="/">Alla</Link>
-        <Link to="/favorites">Min lista</Link>
+      <nav className="navbar">
+        <span className="navbar-title">Kvällens film</span>
+        <div className="navbar-links">
+          <NavLink to="/" end>
+            Alla
+          </NavLink>
+          <NavLink to="/favorites">Min lista</NavLink>
+        </div>
       </nav>
 
       <Routes>
