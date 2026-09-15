@@ -1,24 +1,20 @@
-import { useEffect, useState } from 'react'
-import { getPopularMovies } from './services/tmdb'
+import { Link, Route, Routes } from 'react-router-dom'
+import { HomePage } from './pages/HomePage'
+import { FavoritesPage } from './pages/FavoritesPage'
 
 function App() {
-  const [movies, setMovies] = useState([])
-
-  useEffect(() => {
-    async function loadMovies() {
-      const data = await getPopularMovies()
-      setMovies(data.results)
-    }
-
-    loadMovies()
-  }, [])
-
   return (
-    <ul>
-      {movies.map((movie) => {
-        return <li key={movie.id}>{movie.title}</li>
-      })}
-    </ul>
+    <>
+      <nav>
+        <Link to="/">Alla</Link>
+        <Link to="/favorites">Min lista</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+      </Routes>
+    </>
   )
 }
 
