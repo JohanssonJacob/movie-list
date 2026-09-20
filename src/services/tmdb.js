@@ -15,3 +15,33 @@ export async function getPopularMovies() {
 
   return response.json()
 }
+
+export async function getMovieVideos(id) {
+  const response = await fetch(`${BASE_URL}/movie/${id}/videos`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      accept: 'application/json',
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error(`TMDb request failed: ${response.status}`)
+  }
+
+  return response.json()
+}
+
+export async function getMovieDetails(id) {
+  const response = await fetch(`${BASE_URL}/movie/${id}`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      accept: 'application/json',
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error(`TMDb request failed: ${response.status}`)
+  }
+
+  return response.json()
+}
