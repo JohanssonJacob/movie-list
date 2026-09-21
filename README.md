@@ -38,9 +38,9 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 
    Delas även via props: HomePage skickar page till MovieCard, som använder det för att komma ihåg vilken sida användaren kom ifrån.
 
-4. [/] Minst ett API-anrop med loading- och felhantering.
+4. [X] Minst ett API-anrop med loading- och felhantering.
 
-   API-anrop mot TMDb finns i nuläget, dock utan loading och ordentlig felhantering.
+   API-anrop mot TMDb via en egen hook, useFetch, som används av HomePage och MovieDetailPage. Den hanterar loading (visar "Laddar...") och fel (visar felmeddelande om anropet misslyckas).
 
 5. [X] Minst ett formulär med validering.
 
@@ -62,13 +62,15 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 
 Minst tre av följande ska vara uppfyllda:
 
-1. [/] Utökad felhantering: tydliga tomma-tillstånd, samt hantering av nätverksfel.
+1. [X] Utökad felhantering: tydliga tomma-tillstånd, samt hantering av nätverksfel.
 
-   Ej implementerat än.
+   Tomma-tillstånd: "Inga resultat hittades." vid sökning utan träffar (HomePage) och "Din lista är tom." när inga filmer sparats (WatchlistPage).
+
+   Nätverksfel: useFetch fångar misslyckade API-anrop och visar ett felmeddelande istället för att krascha.
 
 2. [/] Genomtänkt komponentarkitektur: återanvändbara komponenter, egna hooks för delad logik, tydlig separation mellan presentation och datahämtning.
 
-   Återanvändbara komponenter och egna hooks (useWatchlist, useLocalStorage) finns.
+   Återanvändbara komponenter och egna hooks (useWatchlist, useLocalStorage, useFetch) finns.
    
     Men datahämtning är inte separerad från presentation än.
 

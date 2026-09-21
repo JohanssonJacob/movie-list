@@ -149,6 +149,11 @@
   font-size: 14px;
 }
 
+.status-message {
+  padding: 24px;
+  color: var(--text-h);
+}
+
 .search-bar {
   display: block;
   width: 100%;

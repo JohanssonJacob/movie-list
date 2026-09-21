@@ -4,9 +4,9 @@ import { getPopularMovies, searchMovies } from '../services/tmdb'
 import { MovieCard } from '../components/MovieCard'
 import { SearchBar } from '../components/SearchBar'
 import { Pagination } from '../components/Pagination'
+import { useFetch } from '../hooks/useFetch'
 
 export function HomePage() {
-  
   const location = useLocation()
 
   let startingPage = 1
@@ -15,40 +15,62 @@ export function HomePage() {
     startingPage = location.state.page
   }
 
-  const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
+  const [delayedQuery, setDelayedQuery] = useState('')
   const [page, setPage] = useState(startingPage)
 
   useEffect(() => {
-    async function loadMovies() {
-      let data
+    const timeoutId = setTimeout(() => {
+      setDelayedQuery(query)
+    }, 400)
 
-      if (query) {
-        data = await searchMovies(query)
-      } else {
-        data = await getPopularMovies(page)
-      }
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [query])
 
-      setMovies(data.results)
+  function fetchMovies() {
+    if (delayedQuery) {
+      return searchMovies(delayedQuery)
     }
 
-    loadMovies()
-  }, [query, page])
+    return getPopularMovies(page)
+  }
+
+  const { data, loading, error } = useFetch(fetchMovies, [delayedQuery, page])
 
   function handleQueryChange(newQuery) {
     setQuery(newQuery)
     setPage(1)
   }
 
+  let movies = []
+
+  if (data) {
+    movies = data.results
+  }
+
   return (
     <>
       <SearchBar value={query} onChange={handleQueryChange} />
-      <ul className="movie-grid">
-        {movies.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} page={page} />
-        })}
-      </ul>
-      {!query && <Pagination page={page} onPageChange={setPage} />}
+
+      {loading && <p className="status-message">Laddar filmer...</p>}
+
+      {error && <p className="status-message form-error">{error}</p>}
+
+      {!loading && !error && movies.length === 0 && (
+        <p className="status-message">Inga resultat hittades.</p>
+      )}
+
+      {!loading && !error && movies.length > 0 && (
+        <ul className="movie-grid">
+          {movies.map((movie) => {
+            return <MovieCard key={movie.id} movie={movie} page={page} />
+          })}
+        </ul>
+      )}
+
+      {!query && !loading && !error && <Pagination page={page} onPageChange={setPage} />}
     </>
   )
 }

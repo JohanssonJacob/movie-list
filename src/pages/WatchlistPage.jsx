@@ -15,6 +15,10 @@ export function WatchlistPage() {
   const endIndex = startIndex + MOVIES_PER_PAGE
   const moviesToShow = watchlist.slice(startIndex, endIndex)
 
+  if (watchlist.length === 0) {
+    return <p className="status-message">Din lista är tom.</p>
+  }
+
   return (
     <>
       <ul className="movie-grid">
