@@ -9,6 +9,7 @@
 .navbar-title {
   font-weight: 600;
   color: var(--text-h);
+  text-decoration: none;
 }
 
 .navbar-links {
