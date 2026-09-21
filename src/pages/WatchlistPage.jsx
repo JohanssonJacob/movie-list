@@ -24,7 +24,13 @@ export function WatchlistPage() {
       <ul className="movie-grid">
         {moviesToShow.map((movie) => {
           return (
-            <MovieCard key={movie.id} movie={movie} hypeLevel={movie.hypeLevel} note={movie.note} />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              hypeLevel={movie.hypeLevel}
+              note={movie.note}
+              backTo="/watchlist"
+            />
           )
         })}
       </ul>

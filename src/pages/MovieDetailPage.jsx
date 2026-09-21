@@ -26,9 +26,14 @@ export function MovieDetailPage() {
   const year = movie.release_date.slice(0, 4)
   const previousPage = location.state?.page
 
+  let backTo = '/'
+  if (location.state?.backTo) {
+    backTo = location.state.backTo
+  }
+
   return (
     <div className="movie-detail-page">
-      <Link to="/" state={{ page: previousPage }} className="movie-detail-back">
+      <Link to={backTo} state={{ page: previousPage }} className="movie-detail-back">
         <img src="/left-arrow.png" alt="" className="movie-detail-back-icon" />
         Tillbaka
       </Link>

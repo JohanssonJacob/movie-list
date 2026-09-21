@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
-export function MovieCard({ movie, page, hypeLevel, note }) {
+export function MovieCard({ movie, page, hypeLevel, note, backTo = '/' }) {
   const posterUrl = `https://image.tmdb.org/t/p/w200${movie.poster_path}`
 
   return (
     <li className="movie-card">
-      <Link to={`/movie/${movie.id}`} state={{ page }}>
+      <Link to={`/movie/${movie.id}`} state={{ page, backTo }}>
         <div className="movie-card-poster">
           <img src={posterUrl} alt={movie.title} />
           <div className="movie-card-badges">
