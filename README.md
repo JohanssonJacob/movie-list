@@ -24,7 +24,7 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 ## Uppfyllda krav
 1. [X] Minst 5 komponenter med tydligt ansvar, rimlig mappstruktur.
 
-   Komponenter: MovieCard, Navbar, SearchBar, TrailerButton, WatchlistButton.
+   Komponenter: MovieCard, Navbar, SearchBar, TrailerButton, WatchlistButton, Pagination.
    
    Mappstruktur: components/, pages/, services/, hooks/, context/
 
@@ -35,6 +35,8 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 3. [X] State delas mellan minst två komponenter.
 
    Delas genom context via WatchlistContext: WatchlistButton (lägger till eller tar bort) och WatchlistPage (visar listan) läser och skriver samma state.
+
+   Delas även via props: HomePage skickar page till MovieCard, som använder det för att komma ihåg vilken sida användaren kom ifrån.
 
 4. [/] Minst ett API-anrop med loading- och felhantering.
 
@@ -74,9 +76,9 @@ Minst tre av följande ska vara uppfyllda:
 
    Ej anpassat än då jag fortfarande mestadels använder standard Vite css, sidan kommer designas om och anpassas i senare skede.
 
-4. [/ ?] Utökad funktionalitet utöver de gemensamma kraven, motiverad och relevant för idén.
+4. [X ?] Utökad funktionalitet utöver de gemensamma kraven, motiverad och relevant för idén.
 
-   Vet inte riktigt vad som räknas, än så länge har jag en sökfunktion.
+   Vet inte riktigt vad som räknas, har sökfunktion och pagination.
 
 5. [X] Tydlig och väl underhållen commit-historik med beskrivande commit-meddelanden genom hela arbetet.
 
