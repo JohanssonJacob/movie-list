@@ -23,7 +23,9 @@ export function WatchlistPage() {
     <>
       <ul className="movie-grid">
         {moviesToShow.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} />
+          return (
+            <MovieCard key={movie.id} movie={movie} hypeLevel={movie.hypeLevel} note={movie.note} />
+          )
         })}
       </ul>
       {totalPages > 1 && <Pagination page={page} onPageChange={setPage} totalPages={totalPages} />}

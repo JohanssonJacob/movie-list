@@ -13,7 +13,7 @@ export function TrailerButton({ movieId }) {
   }
 
   return (
-    <button type="button" onClick={handleShowTrailer}>
+    <button type="button" className="btn btn-primary" onClick={handleShowTrailer}>
       Visa trailer
     </button>
   )

@@ -78,7 +78,7 @@ Minst tre av följande ska vara uppfyllda:
 
 3. [/] Responsiv design: gränssnittet fungerar och ser bra ut även på mobil skärmstorlek.
 
-   Ej anpassat än då jag fortfarande mestadels använder standard Vite css, sidan kommer designas om och anpassas i senare skede.
+   Ej anpassat för mobil.
 
 4. [X ?] Utökad funktionalitet utöver de gemensamma kraven, motiverad och relevant för idén.
 

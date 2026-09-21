@@ -54,7 +54,7 @@ export function WatchlistButton({ movie }) {
 
   if (isInWatchlist) {
     return (
-      <button type="button" onClick={handleRemove}>
+      <button type="button" className="btn btn-secondary" onClick={handleRemove}>
         Tillagd i listan
       </button>
     )
@@ -83,8 +83,10 @@ export function WatchlistButton({ movie }) {
         {error && <p className="form-error">{error}</p>}
 
         <div className="watchlist-form-actions">
-          <button type="submit">Spara</button>
-          <button type="button" onClick={handleCancel}>
+          <button type="submit" className="btn btn-primary">
+            Spara
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={handleCancel}>
             Avbryt
           </button>
         </div>
@@ -93,7 +95,7 @@ export function WatchlistButton({ movie }) {
   }
 
   return (
-    <button type="button" onClick={() => setIsAdding(true)}>
+    <button type="button" className="btn btn-secondary" onClick={() => setIsAdding(true)}>
       Lägg till i lista
     </button>
   )

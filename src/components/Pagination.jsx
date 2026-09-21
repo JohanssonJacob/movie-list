@@ -4,11 +4,21 @@ export function Pagination({ page, onPageChange, totalPages }) {
 
   return (
     <div className="pagination">
-      <button type="button" onClick={() => onPageChange(page - 1)} disabled={!hasPrevious}>
+      <button
+        type="button"
+        className="btn btn-secondary"
+        onClick={() => onPageChange(page - 1)}
+        disabled={!hasPrevious}
+      >
         Föregående
       </button>
-      <span>Sida {page}</span>
-      <button type="button" onClick={() => onPageChange(page + 1)} disabled={!hasNext}>
+      <span className="pagination-page">Sida {page}</span>
+      <button
+        type="button"
+        className="btn btn-secondary"
+        onClick={() => onPageChange(page + 1)}
+        disabled={!hasNext}
+      >
         Nästa
       </button>
     </div>
