@@ -68,11 +68,13 @@ Minst tre av följande ska vara uppfyllda:
 
    Nätverksfel: useFetch fångar misslyckade API-anrop och visar ett felmeddelande istället för att krascha.
 
-2. [/] Genomtänkt komponentarkitektur: återanvändbara komponenter, egna hooks för delad logik, tydlig separation mellan presentation och datahämtning.
+2. [X] Genomtänkt komponentarkitektur: återanvändbara komponenter, egna hooks för delad logik, tydlig separation mellan presentation och datahämtning.
 
-   Återanvändbara komponenter och egna hooks (useWatchlist, useLocalStorage, useFetch) finns.
-   
-    Men datahämtning är inte separerad från presentation än.
+   Återanvändbara komponenter: MovieCard och Pagination används i flera olika vyer.
+
+   Egna hooks för delad logik: useWatchlist, useLocalStorage, useFetch.
+
+   Separation mellan presentation och datahämtning: useMovies innehåller all logik för att hämta filmer, så att HomePage själv bara hanterar state och rendering.
 
 3. [/] Responsiv design: gränssnittet fungerar och ser bra ut även på mobil skärmstorlek.
 

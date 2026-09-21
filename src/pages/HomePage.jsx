@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { getPopularMovies, searchMovies } from '../services/tmdb'
 import { MovieCard } from '../components/MovieCard'
 import { SearchBar } from '../components/SearchBar'
 import { Pagination } from '../components/Pagination'
-import { useFetch } from '../hooks/useFetch'
+import { useMovies } from '../hooks/useMovies'
 
 export function HomePage() {
   const location = useLocation()
@@ -16,38 +15,13 @@ export function HomePage() {
   }
 
   const [query, setQuery] = useState('')
-  const [delayedQuery, setDelayedQuery] = useState('')
   const [page, setPage] = useState(startingPage)
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDelayedQuery(query)
-    }, 400)
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [query])
-
-  function fetchMovies() {
-    if (delayedQuery) {
-      return searchMovies(delayedQuery)
-    }
-
-    return getPopularMovies(page)
-  }
-
-  const { data, loading, error } = useFetch(fetchMovies, [delayedQuery, page])
+  const { movies, loading, error } = useMovies(query, page)
 
   function handleQueryChange(newQuery) {
     setQuery(newQuery)
     setPage(1)
-  }
-
-  let movies = []
-
-  if (data) {
-    movies = data.results
   }
 
   return (
