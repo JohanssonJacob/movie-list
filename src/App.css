@@ -102,6 +102,53 @@
   cursor: default;
 }
 
+.watchlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.watchlist-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--text-h);
+  font-size: 14px;
+}
+
+.watchlist-form select, .watchlist-form input {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 15px;
+}
+
+.watchlist-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.watchlist-form-actions button {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.form-error {
+  margin: 0;
+  color: #d1435b;
+  font-size: 14px;
+}
+
 .search-bar {
   display: block;
   width: 100%;

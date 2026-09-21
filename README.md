@@ -42,9 +42,9 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 
    API-anrop mot TMDb finns i nuläget, dock utan loading och ordentlig felhantering.
 
-5. [/] Minst ett formulär med validering.
+5. [X] Minst ett formulär med validering.
 
-   Ej implementerat än. Inte bestämt vad formuläret ska vara/innehålla.
+   Formulär i WatchlistButton: klickar man på "Lägg till i lista" knappen så visas ett formuler med "hypenivå" som är obligatorisk 1-5 och en valfri anteckning. Felmeddelande visas om du inte väljer en hypenivå utan att något sparas.
 
 6. [X] Data lagras mellan sidladdningar.
 
