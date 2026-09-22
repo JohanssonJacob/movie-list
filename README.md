@@ -1,6 +1,6 @@
 # Kvällens film
 
-Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Användaren kan bläddra bland populära filmer eller söka efter en specifik titel, se detaljer och trailer för en film, och spara filmer till "Min lista".
+Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Användaren kan bläddra bland populära filmer eller söka efter en specifik titel, se detaljer och trailer för en film, och spara filmer till "Min lista" med en egen hypenivå (Hur taggad man är på att se filmen, 1-5) och anteckning. I "Min lista" kan man sedan söka bland sparade filmer och sortera dem efter senast tillagd eller hypenivå.
 
 
 ## Kör projektet lokalt
@@ -52,11 +52,11 @@ Kvällens film är en simpel filmapplikation byggd med React och TMDbs API. Anv�
 
 7. [X] Ren, namngiven och committad kod.
 
-   Simpel namngivning och committad med rimlig historik (än så länge).
+   Simpel namngivning och committad med rimlig historik.
 
-8. [/] Komplett inlämning enligt ovan.
+8. [X] Komplett inlämning enligt ovan.
 
-   Länk till GitHub-repo och denna README. Ingen deployad sida än.
+   Länk till GitHub-repo och denna README. [Deployad](https://kvallens-film.vercel.app/) med Vercel.
 
 ## VÄL GODKÄND (VG)
 
@@ -70,20 +70,27 @@ Minst tre av följande ska vara uppfyllda:
 
 2. [X] Genomtänkt komponentarkitektur: återanvändbara komponenter, egna hooks för delad logik, tydlig separation mellan presentation och datahämtning.
 
-   Återanvändbara komponenter: MovieCard och Pagination används i flera olika vyer.
+   Återanvändbara komponenter: MovieCard och Pagination används i flera olika vyer. MovieCard tar emot valfria props (hypeLevel, note) så samma komponent kan visa både vanliga filmer och sparade filmer med hypenivå/anteckning.
 
-   Egna hooks för delad logik: useWatchlist, useLocalStorage, useFetch.
+   Egna hooks för delad logik: useWatchlist, useLocalStorage, useFetch, useMovies.
 
    Separation mellan presentation och datahämtning: useMovies innehåller all logik för att hämta filmer, så att HomePage själv bara hanterar state och rendering.
 
-3. [/] Responsiv design: gränssnittet fungerar och ser bra ut även på mobil skärmstorlek.
+3. [X] Responsiv design: gränssnittet fungerar och ser bra ut även på mobil skärmstorlek.
 
-   Ej anpassat för mobil.
+   Sidan har anpassats för att fungera och se bra ut på mobil.
 
-4. [X ?] Utökad funktionalitet utöver de gemensamma kraven, motiverad och relevant för idén.
+4. [X] (Tillräckligt?) Utökad funktionalitet utöver de gemensamma kraven, motiverad och relevant för idén.
 
-   Vet inte riktigt vad som räknas, har sökfunktion och pagination.
+   Sökfält och paginering i både homepage och "Min lista". I "Min lista" vyn finns även två sorteringsalternativ.
+   Även en "Tillbaka" knapp i /movie/:id vyn som tar användaren tillbaka till rätt sida.
 
 5. [X] Tydlig och väl underhållen commit-historik med beskrivande commit-meddelanden genom hela arbetet.
 
-   Än så länge 7 commits med beskrivande meddelanden, gjorda löpande under arbetet.
+   18 commits med beskrivande meddelanden, gjorda löpande under arbetet.
+
+## Skärmdumpar
+
+<img src="screenshots/mobile-view-homepage.png" width="250" />
+<img src="screenshots/desktop-view-watchlist.png" width="400" />
+
