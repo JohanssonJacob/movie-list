@@ -180,6 +180,41 @@
   color: var(--text);
 }
 
+.watchlist-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 24px 0;
+}
+
+.watchlist-controls .search-bar {
+  width: auto;
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+.sort-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.sort-toggle-option {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--code-bg);
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-toggle-option.active {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
 .movie-card-note {
   margin-top: 6px;
   color: var(--text);
